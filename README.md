@@ -8,5 +8,15 @@ In the html file you will find a really simple example, the `required` attribute
 
 There is a version for plain javascript and another one for jQuery.
 
+Demo
 
+![](demo.png)
 
+## ToDo
+
+There is a lot to improve:
+
+1. Adding a node server with nodemailer to receive custom message after a success submit.
+2. Adding more ways to display the error messages.
+3. Improve the code.
+4. ...
