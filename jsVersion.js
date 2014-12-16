@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded',function(){
 				var label = invalid[i].parentNode;
 
 				// Adding the classes to the div
-				error.className = 'message error';
+				error.className = 'error';
 				// Setting the innerHtml with the 
 				// validationMessage property for each error
 				error.textContent = invalid[i].validationMessage;
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
 					allErrors[i].remove();
 				}
-			},4000);
+			},5000);
 		});
 	})();
 

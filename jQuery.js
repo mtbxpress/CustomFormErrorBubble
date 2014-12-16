@@ -16,7 +16,7 @@ $(document).ready(function() {
 			var invalid = label[i].validationMessage;
 
 			// Creating the error message with the text
-			var errors  = $('<div>').addClass('message error').text(invalid);
+			var errors  = $('<div>').addClass('error').text(invalid);
 
 			// Adding the error after the form field
 			$(label[i]).after(errors);
