@@ -7,28 +7,35 @@
 </head>
 <body>
 
-	<h1>HTML5FormValidator</h1>
 
-	<form action="/" method="post">
+	<div class="container">
+		
+		<h1>HTML5FormValidator</h1>
+		
+		<form action="/" method="post">
+			<fieldset>
+				<label for="name">Name
+					<input required type="text" id="name" name="name" placeholder="Your name">
+				</label>
+				
+				<label for="telephone">Telephone
+					<input required type="tel" pattern='\d+' id="telephone" namer="telephone" placeholder="Your telephone">
+				</label>
+				
+				<label for="email">Email
+					<input required type="email" id="email" name="email" placeholder="Your email">
+				</label>
+				
+				<label for="message">Message
+					<textarea required type="tel" id="message" name="message" placeholder="Your message"></textarea>
+				</label>
 
-		<label for="name">Name:
-			<input required type="text" id="name" name="name" placeholder="Your name">
-		</label>
-		
-		<label for="telephone">Telephone:
-			<input required type="tel" pattern='\d+' id="telephone" namer="telephone" placeholder="Your telephone">
-		</label>
-		
-		<label for="email">Email:
-			<input required type="email" id="email" name="email" placeholder="Your email">
-		</label>
-		
-		<label for="message">Message:
-			<textarea required type="tel" id="message" name="message" placeholder="Your message"></textarea>
-		</label>
+				<button type="submit">Submit</button>
+			</fieldset>
+		</form>
 
-		<button type="submit">Submit</button>
-	</form>
+	</div>
+
 	
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="jQuery.js"></script>
