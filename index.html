@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5FormValidator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<h1>HTML5FormValidator</h1>
+
+	<form action="/" method="post">
+
+		<label for="name">Name:
+			<input required type="text" id="name" name="name" placeholder="Your name">
+		</label>
+		
+		<label for="name">Telephone:
+			<input required type="tel" pattern='\d+' id="name" name="name" placeholder="Your name">
+		</label>
+		
+		<label for="email">Email:
+			<input required type="email" id="email" name="email" placeholder="Your email">
+		</label>
+		
+		<label for="message">Message:
+			<textarea required type="tel" id="message" name="message" placeholder="Your message"></textarea>
+		</label>
+
+		<button type="submit">Submit</button>
+	</form>
+	
+	<script src="jsVersion.js"></script>
+</body>
+</html>
