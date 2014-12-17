@@ -10,7 +10,10 @@ There is a version for plain javascript and another one for jQuery.
 
 Demo
 
-![](demo.png)
+<p align="center">
+  <img src="demo.png" alt="demo image">
+</p>
+
 
 ## ToDo
 
