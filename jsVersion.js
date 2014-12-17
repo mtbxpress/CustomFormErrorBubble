@@ -16,8 +16,11 @@ window.addEventListener('DOMContentLoaded',function(){
 
 	  	// Saving all the errors in a variable
 	  	var invalid = form.querySelectorAll(':invalid');
-		
-			for(var i = 0; i < invalid.length;i++){
+
+	  	console.log(invalid);
+			
+			// Starts at 1 so we take out the fieldset tag
+			for(var i = 1; i < invalid.length;i++){
 
 				// div for the error messages
 				var error = document.createElement('div');
@@ -30,7 +33,7 @@ window.addEventListener('DOMContentLoaded',function(){
 				// validationMessage property for each error
 				error.textContent = invalid[i].validationMessage;
 
-				label.insertBefore(error,invalid[i]);
+				label.insertBefore(error,invalid[i].nextSibling);
 			}
 
 			// Removing the actual error messages

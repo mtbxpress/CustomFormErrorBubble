@@ -4,7 +4,7 @@ A simple and customizable form validator. There is by default some predefined CS
 
 The idea is to change the CSS styles of this messages so they will look the same in each browser. 
 
-In the html file you will find a really simple example, the `required` attribute is a must. Take a look to all the possible values for the `type` attribute used in the `input` tag.
+In the html file you will find a really simple example, the `required` attribute is a must. Take a look to all the possible values for the `type` attribute used in the `input` [tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input).
 
 There is a version for plain javascript and another one for jQuery.
 
