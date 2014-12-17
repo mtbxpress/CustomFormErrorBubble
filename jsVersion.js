@@ -16,8 +16,6 @@ window.addEventListener('DOMContentLoaded',function(){
 
 	  	// Saving all the errors in a variable
 	  	var invalid = form.querySelectorAll(':invalid');
-
-	  	console.log(invalid);
 			
 			// Starts at 1 so we take out the fieldset tag
 			for(var i = 1; i < invalid.length;i++){
