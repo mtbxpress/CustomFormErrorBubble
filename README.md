@@ -8,8 +8,6 @@ In the html file you will find a really simple example, the `required` attribute
 
 There is a version for plain javascript and another one for jQuery.
 
-Demo
-
 <p align="center">
   <img src="demo.png" alt="demo image">
 </p>
