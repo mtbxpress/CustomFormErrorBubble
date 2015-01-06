@@ -3,6 +3,14 @@ window.addEventListener('DOMContentLoaded',function(){
 	(function(){
 		var form = document.querySelector('form');
 
+		// Support Safari and Android browser—each of which do not prevent
+    // form submissions by default
+		form.addEventListener( "submit", function( event ) {
+      if ( !this.checkValidity() ) {
+        event.preventDefault();
+      }
+    });
+
 		// The 'invalid' event is the one that triggers the
 		// errors. Here we are preventing those errors.
 		form.addEventListener( 'invalid',function(event){
@@ -17,8 +25,7 @@ window.addEventListener('DOMContentLoaded',function(){
 	  	// Saving all the errors in a variable
 	  	var invalid = form.querySelectorAll(':invalid');
 			
-			// Starts at 1 so we take out the fieldset tag
-			for(var i = 1; i < invalid.length;i++){
+			for(var i = 0; i < invalid.length;i++){
 
 				// div for the error messages
 				var error = document.createElement('div');
