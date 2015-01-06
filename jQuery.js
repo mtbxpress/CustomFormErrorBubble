@@ -9,7 +9,9 @@ $(document).ready(function() {
 	});
 
 	// Adding the new behaviour to the DOM 
-	$('button').on('click', function() {
+	$('button').on('click', function(event) {
+
+		event.preventDefault();
 
 		for(var i = 0;i< label.length; i++ ){
 
