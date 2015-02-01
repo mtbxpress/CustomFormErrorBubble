@@ -1,3 +1,6 @@
+/* jshint browser:true */
+'use strict';
+
 window.addEventListener('DOMContentLoaded',function(){
 
 	(function(){
@@ -5,7 +8,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
 		// Support Safari and Android browser—each of which do not prevent
     // form submissions by default
-		form.addEventListener( "submit", function( event ) {
+		form.addEventListener( 'submit', function( event ) {
       if ( !this.checkValidity() ) {
         event.preventDefault();
       }
@@ -27,19 +30,31 @@ window.addEventListener('DOMContentLoaded',function(){
 			
 			for(var i = 0; i < invalid.length;i++){
 
-				// div for the error messages
-				var error = document.createElement('div');
-				// Targeting the parent on the input 
-				var label = invalid[i].parentNode;
+				// setting the custom message if input willValidate
+				if(invalid[i].willValidate){
 
-				// Adding the classes to the div
-				error.className = 'error';
-				// Setting the innerHtml with the 
-				// validationMessage property for each error
-				error.textContent = invalid[i].validationMessage;
+					// div for the error messages
+					var error = document.createElement('div');
+					// Targeting the parent on the input 
+					var label = invalid[i].parentNode;
 
-				label.insertBefore(error,invalid[i].nextSibling);
+					console.log(label);
+
+					// Adding the classes to the div
+					error.className = 'error';
+					// Setting the innerHtml with the 
+					// validationMessage property for each error
+					error.textContent = invalid[i].validationMessage;
+
+					label.insertBefore(error,invalid[i].nextSibling);
+
+				}
+
+
+				
 			}
+
+
 
 			// Removing the actual error messages
 			window.setTimeout(function(){
