@@ -28,7 +28,6 @@ window.addEventListener('DOMContentLoaded', function() {
     noJS.style.display = 'none';
 
     for (var i = 0; i < allCheckBox.length; i++) {
-      console.log(allCheckBox[i]);
       allCheckBox[i].setAttribute('required', 'required');
       allCheckBox[i].addEventListener('change', deleteRequiredAttr);
     }
@@ -60,6 +59,8 @@ window.addEventListener('DOMContentLoaded', function() {
       // Saving all the errors in a variable
       var invalid = form.querySelectorAll(':invalid');
 
+      console.log(invalid.length,'1');
+
       for (var i = 0; i < invalid.length; i++) {
 
         // setting the custom behavior if element willValidate
@@ -77,19 +78,27 @@ window.addEventListener('DOMContentLoaded', function() {
           error.textContent = invalid[i].validationMessage;
           // adding the new element
           label.insertBefore(error, invalid[i].nextSibling);
+
+          invalid[0].focus();
         }
       }
 
+      // var invalid2 = form.querySelectorAll(':invalid');
+
+      // console.log(invalid2.length,'2');
+      
+      // document.getElementById('message').focus();
+
       // Removing the actual error messages
-      window.setTimeout(function() {
+      // window.setTimeout(function() {
 
-        var allErrors = document.querySelectorAll('.error');
+      //   var allErrors = document.querySelectorAll('.error');
 
-        for (var i = 0; i < allErrors.length; i++) {
+      //   for (var i = 0; i < allErrors.length; i++) {
 
-          allErrors[i].remove();
-        }
-      }, 5000);
+      //     allErrors[i].remove();
+      //   }
+      // }, 5000);
     });
 
   })();

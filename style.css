@@ -10,21 +10,17 @@ body{
 	padding-bottom: 50px;
 }
 
-form > *,
-label > *{
-	display: block;
-}
 
 form{
 	width: 500px;
 	margin: 0 auto;
 }
 
-label,
-label > *{
+label{
 	width: 250px;
 	text-align: center;
 	margin: 20px auto;
+	display: table;
 }
 
 input{
