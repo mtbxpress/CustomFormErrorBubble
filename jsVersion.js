@@ -66,11 +66,15 @@ window.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', function() {
 
         // Saving all the errors in a variable
-        var invalid = form.querySelectorAll(':invalid');
+        var invalid = form.querySelectorAll(':invalid'),
+          allErrors = document.querySelectorAll('.error');
 
-        console.log(invalid.length, '1');
+        // removing existing errors
+        for (i = 0; i < allErrors.length; i++) {
+          allErrors[i].remove();
+        }
 
-        for (var i = 0; i < invalid.length; i++) {
+        for (i = 0; i < invalid.length; i++) {
 
           // setting the custom behavior if element willValidate
           if (invalid[i].willValidate) {
@@ -89,21 +93,6 @@ window.addEventListener('DOMContentLoaded', function() {
             label.insertBefore(error, invalid[i].nextSibling);
           }
         }
-
-        // if(invalid.length > 0 ){
-        //   invalid[0].focus();
-        // }
-
-        // Removing the actual error messages
-        // window.setTimeout(function() {
-
-        //   var allErrors = document.querySelectorAll('.error');
-
-        //   for (var i = 0; i < allErrors.length; i++) {
-
-        //     allErrors[i].remove();
-        //   }
-        // }, 5000);
       });
     }
 
