@@ -15,9 +15,7 @@ In order to have custom look for the bubbles across all supporting browsers the 
       // do stuff
     }, true);
 ```
-
-The idea is to change the CSS styles of this messages so they will look the same in each browser. 
-
+ 
 In the [html](https://github.com/byverdu/HTML5FormValidator/blob/master/index.html) file you will find a really simple example, the `required` attribute is a must in all the elements that you need to validate.
 
 Take a look to all the possible values for the `type` attribute used in the `input` [tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input).
