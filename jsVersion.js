@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function() {
   (function() {
 
     // adding the required attribute for multiple check boxes
-    var deleteRequiredAttr = function() {
+    function deleteRequiredAttr() {
 
       var i,
         thisCount = document.querySelectorAll('.options:checked').length;
@@ -20,14 +20,16 @@ window.addEventListener('DOMContentLoaded', function() {
           allCheckBox[i].setAttribute('required', 'required');
         }
       }
-    };
+    }
 
-    var allCheckBox = document.querySelectorAll('.options'),
+    var i,
+      forms,
+      allCheckBox = document.querySelectorAll('.options'),
       noJS = document.querySelector('.noJS');
 
     noJS.style.display = 'none';
 
-    for (var i = 0; i < allCheckBox.length; i++) {
+    for (i = 0; i < allCheckBox.length; i++) {
       allCheckBox[i].setAttribute('required', 'required');
       allCheckBox[i].addEventListener('change', deleteRequiredAttr);
     }
@@ -36,70 +38,74 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Custom form validation
 
-    var form = document.querySelector('form'),
-      button = form.querySelector('button');
+    forms = document.querySelectorAll('form');
 
-    // Support Safari and Android browser—each of which do not prevent
-    // form submissions by default
-    form.addEventListener('submit', function(event) {
-      if (!this.checkValidity()) {
+    for (i = 0; i < forms.length; i++) {
+      changeFormUI(forms[i]);
+    }
+
+    function changeFormUI(form) {
+
+      // The 'invalid' event is the one that triggers the
+      // errors. Here we are preventing those errors.
+      form.addEventListener('invalid', function(event) {
         event.preventDefault();
-      }
-    });
+      }, true);
 
-    // The 'invalid' event is the one that triggers the
-    // errors. Here we are preventing those errors.
-    form.addEventListener('invalid', function(event) {
-      event.preventDefault();
-    }, true);
-
-    // Adding the new behaviour to the DOM 
-    button.addEventListener('click', function() {
-
-      // Saving all the errors in a variable
-      var invalid = form.querySelectorAll(':invalid');
-
-      console.log(invalid.length,'1');
-
-      for (var i = 0; i < invalid.length; i++) {
-
-        // setting the custom behavior if element willValidate
-        if (invalid[i].willValidate) {
-
-          // create div for the error messages
-          var error = document.createElement('div');
-          // Targeting the parent on the input 
-          var label = invalid[i].parentNode;
-
-          // Adding the classes to the div
-          error.className = 'error';
-          // Setting the innerHtml with the 
-          // validationMessage property for each error
-          error.textContent = invalid[i].validationMessage;
-          // adding the new element
-          label.insertBefore(error, invalid[i].nextSibling);
-
-          invalid[0].focus();
+      // Support Safari and Android browser—each of which do not prevent
+      // form submissions by default
+      form.addEventListener('submit', function(event) {
+        if (!this.checkValidity()) {
+          event.preventDefault();
         }
-      }
+      });
 
-      // var invalid2 = form.querySelectorAll(':invalid');
+      var button = form.querySelector('button');
 
-      // console.log(invalid2.length,'2');
-      
-      // document.getElementById('message').focus();
+      // Adding the new behaviour to the DOM 
+      button.addEventListener('click', function() {
 
-      // Removing the actual error messages
-      // window.setTimeout(function() {
+        // Saving all the errors in a variable
+        var invalid = form.querySelectorAll(':invalid');
 
-      //   var allErrors = document.querySelectorAll('.error');
+        console.log(invalid.length, '1');
 
-      //   for (var i = 0; i < allErrors.length; i++) {
+        for (var i = 0; i < invalid.length; i++) {
 
-      //     allErrors[i].remove();
-      //   }
-      // }, 5000);
-    });
+          // setting the custom behavior if element willValidate
+          if (invalid[i].willValidate) {
+
+            // create div for the error messages
+            var error = document.createElement('div');
+            // Targeting the parent on the input 
+            var label = invalid[i].parentNode;
+
+            // Adding the classes to the div
+            error.className = 'error';
+            // Setting the innerHtml with the 
+            // validationMessage property for each error
+            error.textContent = invalid[i].validationMessage;
+            // adding the new element
+            label.insertBefore(error, invalid[i].nextSibling);
+          }
+        }
+
+        // if(invalid.length > 0 ){
+        //   invalid[0].focus();
+        // }
+
+        // Removing the actual error messages
+        // window.setTimeout(function() {
+
+        //   var allErrors = document.querySelectorAll('.error');
+
+        //   for (var i = 0; i < allErrors.length; i++) {
+
+        //     allErrors[i].remove();
+        //   }
+        // }, 5000);
+      });
+    }
 
   })();
 
