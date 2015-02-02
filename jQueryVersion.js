@@ -1,3 +1,8 @@
+/* jshint browser:true */
+/* jshint jquery:true */
+
+'use strict';
+
 $(document).ready(function() {
 	
 	var label = $('label').children();
