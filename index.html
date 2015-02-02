@@ -65,20 +65,37 @@
 					<input id="pc" type="radio" name="group1" value="pc" required>
 				</label>
 
+				<label for="terms">
+					<span>Terms and conditions</span>
+					<input type="checkbox" id="terms" required>
+				</label>
+
 				<p>Best topping ever</p>
+				
+				<!-- Multiple required checkboxes give a problem when validates. Added extra javascript in order to use it, check jsVersion.js file -->
+
+				<p class="noJS">Your Javascript is disabled, if you do not choose one of this options the form will be submitted without this information.</p>
 
 				<label for="pineapple">
      <span>Pineapple:</span>
-					<input id="pineapple" type="checkbox" name="group2" value="pineapple" required>
+					<input class="options" id="pineapple" type="checkbox" name="pineapple" value="pineapple">
 				</label>
-
+				<!-- Added a class="options" for all same group of checkboxes -->
 				<label for="ham">
      <span>Ham:</span>
-					<input id="ham" type="checkbox" name="group2" value="ham" required>
+					<input class="options" id="ham" type="checkbox" name="ham" value="ham">
 				</label>
+
+				<label for="olives">
+     <span>Olives:</span>
+					<input class="options" id="olives" type="checkbox" name="olives" value="olives">
+				</label>
+				
+				
+
 			</fieldset> <!-- /statistics -->
 
-			<button type="submit">Submit</button>
+			<button>Submit</button>
 		</form>
 
 	</div> <!-- /container -->
