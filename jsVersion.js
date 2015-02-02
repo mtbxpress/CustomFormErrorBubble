@@ -66,7 +66,9 @@ window.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', function() {
 
         // Saving all the errors in a variable
-        var invalid = form.querySelectorAll(':invalid'),
+        var label,
+          error,
+          invalid = form.querySelectorAll(':invalid'),
           allErrors = document.querySelectorAll('.error');
 
         // removing existing errors
@@ -80,18 +82,32 @@ window.addEventListener('DOMContentLoaded', function() {
           if (invalid[i].willValidate) {
 
             // create div for the error messages
-            var error = document.createElement('div');
-            // Targeting the parent on the input 
-            var label = invalid[i].parentNode;
-
-            // Adding the classes to the div
+            error = document.createElement('div');
             error.className = 'error';
+
+            // Targeting the input's parent 
+            label = invalid[i].parentNode;
+
             // Setting the innerHtml with the 
             // validationMessage property for each error
             error.textContent = invalid[i].validationMessage;
             // adding the new element
             label.insertBefore(error, invalid[i].nextSibling);
           }
+        }
+
+        // focus on the first element with error
+        if (invalid.length > 1) {
+
+          var arr = [];
+
+          [].map.call(invalid, function(val) {
+            if (val.willValidate) {
+              arr.push(val);
+            }
+          });
+
+          arr[0].focus();
         }
       });
     }
