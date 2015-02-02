@@ -1,6 +1,20 @@
-# HMTL5 Form Validation
+# Custom Form Error Bubbles 
 
-A simple and customizable form validation. There is by default some predefined CSS styles for the error messages that each browser shows if a form is submitted and some fields are empty or with a wrong value.
+By default all major browsers have their own CSS styles for the error messages when a form is submitted and some fields are empty or with a wrong value.
+
+In order to have custom look for the bubbles across all supporting browsers the only option is to suppress the default bubble and implement your own.
+
+```javascript
+	// preventing the default behavior
+
+	var form = document.querySelector('form');
+
+	form.addEventListener('invalid', function(event) {
+      event.preventDefault();
+
+      // do stuff
+    }, true);
+```
 
 The idea is to change the CSS styles of this messages so they will look the same in each browser. 
 
@@ -10,7 +24,7 @@ Take a look to all the possible values for the `type` attribute used in the `inp
 
 ### Issues
 
-Using the required attribute for a group of check boxes fails because when you submit the form the error message pop up for the unchecked boxes. 
+Using the required attribute for a group of check boxes fails because when you submit the form the error message pops up for the unchecked boxes. 
 
 To solve this you need to add a common class for all this elements and add/remove the required attribute programmatically.
 
