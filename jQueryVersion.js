@@ -38,7 +38,7 @@ $(document).ready(function() {
 
       $('.error').fadeOut('fast');
 
-      invalid.each(function(index, el) {
+      invalid.each(function(el) {
         var errors = $('<div>').addClass('error').text(el.validationMessage);
 
         $(el).after(errors);
