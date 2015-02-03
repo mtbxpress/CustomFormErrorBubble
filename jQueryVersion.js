@@ -41,7 +41,7 @@ $(document).ready(function() {
       invalid.each(function(index, el) {
         var errors = $('<div>').addClass('error').text(el.validationMessage);
 
-        $(this).after(errors);
+        $(el).after(errors);
 
       });
 
