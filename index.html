@@ -19,12 +19,12 @@
 
         <label for="email">
           <span>Email:</span>
-          <input required type="email" id="email" name="email" placeholder="Your email">
+          <input required type="email" id="email" name="email" placeholder="Your email" title="aa@aa.aa">
         </label>
 
         <label for="telephone">
           <span>Telephone:</span>
-          <input required type="tel" pattern='\d+' id="telephone" namer="telephone" placeholder="Your telephone">
+          <input required type="tel" pattern='\d+' id="telephone" namer="telephone" placeholder="Your telephone" title="No spaces between">
         </label>
 
         <label for="name">
@@ -45,7 +45,7 @@
         <label for="gender">
           <span>Select Gender</span>
           <!-- first value must be empty in order to get an error -->
-          <select id="gender" required>
+          <select id="gender" required title="Select a Gender">
             <option value=""></option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -67,7 +67,7 @@
 
         <label for="terms">
           <span>Terms and conditions</span>
-          <input type="checkbox" id="terms" required>
+          <input type="checkbox" id="terms" required title="Please agree with the conditions">
         </label>
 
         <p>Best topping ever</p>
@@ -100,9 +100,9 @@
   </div>
   <!-- /container -->
 
-  <script src="jsVersion.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="jQuery.js"></script> -->
+  <!-- <script src="jsVersion.js"></script> -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="jQueryVersion.js"></script>
 </body>
 
 </html>
