@@ -4,37 +4,50 @@
 'use strict';
 
 $(document).ready(function() {
-	
-	var label = $('label').children();
 
-	// The 'invalid' event is the one that triggers the
-	// errors. Here we are preventing those errors.
-	label.on('invalid',function(event) {
-		event.preventDefault();
-	});
+  $('.noJS').hide(); // hiding the no JS element
 
-	// Adding the new behaviour to the DOM 
-	$('button').on('click', function(event) {
+  // adding the required attribute for multiple check boxes
+  var allCheckBox = $('.options');
 
-		event.preventDefault();
+  allCheckBox.attr('required', 'required');
 
-		for(var i = 0;i< label.length; i++ ){
+  allCheckBox.change(function() {
+    if (allCheckBox.is(':checked')) {
+      allCheckBox.removeAttr('required');
+    } else {
+      allCheckBox.attr('required', 'required');
+    }
+  });
 
-			var invalid = label[i].validationMessage;
+  // end multiple check boxes setting
 
-			// Creating the error message with the text
-			var errors  = $('<div>').addClass('error').text(invalid);
+  // Custom form validation
 
-			// Adding the error after the form field
-			$(label[i]).after(errors);
+  $('form').each(function(el) {
+    changeFormUI(el);
+  });
 
-		}
+  function changeFormUI() {
 
-		// Hiding messages
-		window.setTimeout(function() {
-	    $('.error').fadeTo(5000, 0).slideUp(500, function(){
-	        $(this).remove();
-	    });
-	  }, 4000);
-	});
+    $('button').on('click', function(event) {
+
+      event.preventDefault();
+
+      var invalid = $('label > :invalid');
+
+      $('.error').fadeOut('fast');
+
+      invalid.each(function(index, el) {
+        var errors = $('<div>').addClass('error').text(el.validationMessage);
+
+        $(this).after(errors);
+
+      });
+
+      if (invalid.length > 1) {
+        invalid[0].focus();
+      }
+    });
+  }
 });
